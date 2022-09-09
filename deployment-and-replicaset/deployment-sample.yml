@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    environment: development
+  name: testdeploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      environment: development
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        environment: development
+    spec:
+      containers:
+      - image: nginx:1.17
+        name: nginx-webserver
