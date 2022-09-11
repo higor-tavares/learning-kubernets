@@ -1,0 +1,8 @@
+If you have a minikube installer and running, first of all
+run `kubectl apply -f services-k8s/services.yml` to run 2 instances of nginx server
+and then run  `kubectl apply -f services-k8s/nodeport.yml` to run nodeport that 
+is like a loadbalance that you can run on localhost
+then run the flowing command to redirect your localhost port to kubernets nodeport services
+`kubectl port-forward svc/np-service ${any port you want}:80`
+then acess localhost:${any port you want} and congratulations, 
+you have a kubernets cluster runing successfuly with 2 pods in your machine!
