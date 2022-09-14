@@ -1,0 +1,2 @@
+You can use 
+eksctl create nodegroup --config-file=eksctl-create-ng.yml
